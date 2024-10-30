@@ -16,7 +16,14 @@ public class Main {
 
         List<Query> queries = new QueryParser().parseToQuery(stringList);
         Service service = new Service();
+        int counter = 0;
         for (Query query : queries) {
+
+            counter++;
+            if (counter == 18) {
+                System.out.println("");
+            }
+
             int resultIndex = service.findIndexOfElementInSubstring(stringList, query);
             FileWriter fileWriter = new FileWriter();
             fileWriter.writeToFile(OUTPUT_FILE_NAME, String.valueOf(resultIndex));

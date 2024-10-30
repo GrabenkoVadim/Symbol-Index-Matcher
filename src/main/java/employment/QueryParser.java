@@ -20,10 +20,13 @@ public class QueryParser {
             query.setSymbolIndex(Integer.parseInt(splitedQuery[SYMBOL_INDEX]));
             if (query.getFirstIndex() <= query.getLastIndex()
                     && query.getSymbolIndex() > 0
-                    && query.getSymbolIndex() <= query.getLastIndex()) {
+                    && query.getSymbolIndex() <= query.getLastIndex()
+                    && query.getLastIndex() < dataFromFile.get(1).length()) {
                 queries.add(query);
             }
         }
+        System.out.println("There could be some queries that are out of bounds. " +
+                "They were skipped!");
         return queries;
     }
 }

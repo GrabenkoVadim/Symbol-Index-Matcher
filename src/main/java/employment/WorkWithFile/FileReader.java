@@ -18,7 +18,7 @@ public class FileReader {
                 throw new RuntimeException("It is too much characters in given String");
             }
             if (dataFromFile.size() > 300_002) {
-                throw new RuntimeException("It is too much queries");
+                throw new RuntimeException("It is too much queries there");
             }
         } catch (IOException e) {
             throw new RuntimeException("Cant read file: " + filePath, e);
