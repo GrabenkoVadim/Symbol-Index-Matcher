@@ -7,8 +7,8 @@ import employment.model.Query;
 import java.util.List;
 
 public class Main {
-    private static final String INPUT_FILE_NAME = "src/main/java/employment/data/input.txt";
-    private static final String OUTPUT_FILE_NAME = "src/main/java/employment/data/output.txt";
+    private static final String INPUT_FILE_NAME = "input.txt";
+    private static final String OUTPUT_FILE_NAME = "output.txt";
 
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
@@ -16,14 +16,8 @@ public class Main {
 
         List<Query> queries = new QueryParser().parseToQuery(stringList);
         Service service = new Service();
-        int counter = 0;
+
         for (Query query : queries) {
-
-            counter++;
-            if (counter == 18) {
-                System.out.println("");
-            }
-
             int resultIndex = service.findIndexOfElementInSubstring(stringList, query);
             FileWriter fileWriter = new FileWriter();
             fileWriter.writeToFile(OUTPUT_FILE_NAME, String.valueOf(resultIndex));

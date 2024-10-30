@@ -13,11 +13,11 @@ public class QueryParser {
     public List<Query> parseToQuery(List<String> dataFromFile) {
         List<Query> queries = new ArrayList<>();
         for (int i = 2; i < dataFromFile.size(); i++) {
-            String[] splitedQuery = dataFromFile.get(i).split(" ");
+            String[] splitQuery = dataFromFile.get(i).split(" ");
             Query query = new Query();
-            query.setFirstIndex(Integer.parseInt(splitedQuery[RUN_START]));
-            query.setLastIndex(Integer.parseInt(splitedQuery[RUN_END]));
-            query.setSymbolIndex(Integer.parseInt(splitedQuery[SYMBOL_INDEX]));
+            query.setFirstIndex(Integer.parseInt(splitQuery[RUN_START]));
+            query.setLastIndex(Integer.parseInt(splitQuery[RUN_END]));
+            query.setSymbolIndex(Integer.parseInt(splitQuery[SYMBOL_INDEX]));
             if (query.getFirstIndex() <= query.getLastIndex()
                     && query.getSymbolIndex() > 0
                     && query.getSymbolIndex() <= query.getLastIndex()
