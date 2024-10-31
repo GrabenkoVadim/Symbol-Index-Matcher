@@ -12,15 +12,17 @@ public class Main {
 
     public static void main(String[] args) {
         FileReader fileReader = new FileReader();
+
         List<String> stringList = fileReader.readFile(INPUT_FILE_NAME);
 
-        List<Query> queries = new QueryParser().parseToQuery(stringList);
-        Service service = new Service();
+        StringBuilder builder = new StringBuilder();
 
+        List<Query> queries = new QueryParser().parseToQuery(stringList);
         for (Query query : queries) {
-            int resultIndex = service.findIndexOfElementInSubstring(stringList, query);
-            FileWriter fileWriter = new FileWriter();
-            fileWriter.writeToFile(OUTPUT_FILE_NAME, String.valueOf(resultIndex));
+            int resultIndex = new Service().findIndexOfElementInSubstring(stringList, query);
+            builder.append(resultIndex).append("\n");
         }
+        FileWriter fileWriter = new FileWriter();
+        fileWriter.writeToFile(OUTPUT_FILE_NAME, builder.toString());
     }
 }

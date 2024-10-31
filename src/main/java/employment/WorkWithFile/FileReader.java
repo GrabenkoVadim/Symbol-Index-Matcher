@@ -9,7 +9,7 @@ public class FileReader {
 
     public List<String> readFile(String filePath) {
         List<String> dataFromFile = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new java.io.FileReader(filePath), 64 * 1024)) {
             String line;
             while ((line = br.readLine()) != null) {
                 dataFromFile.add(line);
